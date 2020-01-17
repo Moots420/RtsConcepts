@@ -9,12 +9,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import Entities.EntityManager;
 import ParticalSystem.particalSystem;
 
 
 
 public class Engine implements Runnable{
 private MouseHandler mouseMngr;
+private EntityManager entityManager;
 private int width, height; // resoloution
 private int Fps;
 private String title;
@@ -39,12 +41,15 @@ private Color background;
 		KeyManager = new keyManager();
 		mouseMngr = new MouseHandler(handler);
 		ParticalSystem = new particalSystem();
+		entityManager = new EntityManager(handler);
 		game = new mainGame(KeyManager, handler);
 		handler.setKeyMngr(KeyManager);
 		handler.setMouseMngr(mouseMngr);
 		handler.setEngine(this);
 		handler.setGame(game);
 		handler.setParticalSystem(ParticalSystem);
+		handler.setEntityManager(entityManager);
+		
         background = new Color(0,100,75);
         
 		
@@ -55,6 +60,7 @@ private Color background;
 		game.tick();
 		KeyManager.tick();
 		ParticalSystem.tick();
+		entityManager.tick();
 	
 	}
 	private void render() {
@@ -71,6 +77,7 @@ private Color background;
 		g.setColor(background);
 		g.fillRect(0, 0, width, height);
 		game.render(g);
+		entityManager.render(g);
 	
 		
 		

@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public class MouseHandler implements MouseListener, MouseMotionListener{
-public boolean leftClick,justPressed;
+public boolean leftClick,justPressed,rightClick;
 public int xMos, yMos;
 public int startX,startY,width, height,x ,y;
 public boolean dragging;
@@ -88,6 +88,12 @@ public void setStartPoint(int x, int y) {
 	    	   dragging = true;
 	    	  
 	       }	
+	    	   }else  if(e.getButton() == MouseEvent.BUTTON3 && rightClick == false) {
+	    		    rightClick = true;
+	    		    if(dragging == false) {
+	    	    	x = e.getX();
+	    	    	y = e.getY();
+	    		    }
 	    	   }
 	}
 
@@ -96,7 +102,9 @@ public void setStartPoint(int x, int y) {
 		  if(e.getButton() == MouseEvent.BUTTON1) {
 	    	   leftClick = false;
 	    	   dragging = false;
-}	
+}else  if(e.getButton() == MouseEvent.BUTTON3) {
+	rightClick = false;
+}
 	
 	}
 

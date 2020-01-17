@@ -1,6 +1,7 @@
 package Main;
 import java.util.Random;
 
+import Entities.EntityManager;
 import ParticalSystem.particalSystem;
 
 public class Handler {
@@ -10,7 +11,16 @@ private mainGame Game;
 private Display disp;
 private MouseHandler mouseMngr;
 private particalSystem ParticalSystem;
+private EntityManager entityManager;
 
+
+public EntityManager getEntityManager() {
+	return entityManager;
+}
+
+public void setEntityManager(EntityManager entityManager) {
+	this.entityManager = entityManager;
+}
 
 public particalSystem getParticalSystem() {
 	return ParticalSystem;
