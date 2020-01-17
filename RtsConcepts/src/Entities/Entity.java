@@ -19,11 +19,17 @@ public abstract class Entity {
 		 this.xDir = xDir; this.yDir = yDir;
 		 
 	 }
-	 public void setBounds(Rectangle r) {
+	 public Rectangle getBounds() {
+		return bounds;
+	}
+	public void setBounds(Rectangle r) {
 		 bounds = r;
 		 
 	 }
+
 	 protected abstract void tick();
 	 protected abstract void render(Graphics g);
+	 protected abstract void doCommand(String type,int xDest, int yDest);
+			
 
 }

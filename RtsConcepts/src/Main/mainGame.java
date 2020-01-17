@@ -26,7 +26,7 @@ public mainGame(keyManager KeyManager, Handler handler) {
 
 public void tick() {
 if(handler.getKeyMngr().space) {
-	handler.getEntityManager().addEntity(new testCreature(handler,handler.getRandomNumber(0, 600),handler.getRandomNumber(0, 600),10,10));
+	handler.getEntityManager().addEntity(new testCreature(handler,handler.getRandomNumber(0, 600),handler.getRandomNumber(0, 600),10,10,5));
 	
 }
 
